@@ -20,12 +20,13 @@ class DataAnalysisODT:
         self.time = self.dt["t"].as_matrix()/1e-12
         
         self.slider = ipywidgets.IntSlider(value=self.time[0],
-                                             min=self.time[0], 
-                                             max=self.time[-1],
-                                             step=self.time[1]-self.time[0],
-                                             description="t (ps):",
-                                             readout=True,
-                                             layout=ipywidgets.Layout(width="100%"))
+                                           min=self.time[0],  
+                                           max=self.time[-1],
+                                           step=self.time[1]-self.time[0],
+                                           description="t (ps):",
+                                           readout=True,
+                                           layout=ipywidgets.Layout(width="100%"),
+                                           continuous_update=False)
 
         self.select = ipywidgets.Select(options=list(self.dt.columns.values),
                                         description="Output:")
@@ -80,7 +81,8 @@ class DataAnalysisOMF:
                                            step=self.stage[1]-self.stage[0],
                                            description="Stage:",
                                            readout=True,
-                                           layout=ipywidgets.Layout(width="80%"))
+                                           layout=ipywidgets.Layout(width="80%"),
+                                           continuous_update=False)
         
         self.slice_slider = ipywidgets.FloatSlider(value=0,
                                                    min=0, 
@@ -88,7 +90,8 @@ class DataAnalysisOMF:
                                                    step=0.01,
                                                    description="Point:",
                                                    readout=True,
-                                                   layout=ipywidgets.Layout(width="75.5%"))
+                                                   layout=ipywidgets.Layout(width="75.5%"),
+                                                   continuous_update=False)
         
         self.play = ipywidgets.Play(value=self.stage[0],
                                           min=self.stage[0], 
